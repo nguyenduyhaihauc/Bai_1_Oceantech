@@ -1,0 +1,6 @@
+- Tạo hai activity gọi vòng đời và thực hiện debug, truyền dữ liệu giữa 2 Activity thông qua Intent
+- Thực hiện phát nhạc bằng Background Service(app sẽ tiếp tục chạy ngay cả khi không có sự tương tác của người dùng)
+- Sử dụng Foregroud Service thực hiện phát nhạc có thể Stop bằng Notification
+- Bound Service cung cấp 1 giao diện Client - Server thực hiện tính toán gửi đến Service để tính toán và trả về Activity
+- Broadcast Receiver lắng nghe sự thay đổi khi tắt bật kết nối mạng
+- Custom list view hiển thị danh sách User, có Dialog nhập thông tin để thêm User mới
