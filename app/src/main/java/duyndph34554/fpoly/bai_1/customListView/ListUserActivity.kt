@@ -61,6 +61,7 @@ class ListUserActivity : ComponentActivity() {
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+//                Them user moi
                 AddUserDialog(onAddUser = { user ->
                     val updatedList = _users.value.orEmpty() + user
                     _users.value = updatedList
@@ -68,14 +69,18 @@ class ListUserActivity : ComponentActivity() {
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                val userList by users.observeAsState(initial = emptyList())
+//                Khi du lieu trong LiveData thay doi thi se tu dong tai cau truc moi
+                val userList by users.observeAsState(initial = emptyList()) //Dat gia tri ban dau la ds rong
+//                Hien thi ds nguoi dung
                 UserList(users = userList)
             }
         }
     }
 
+//    Ham them User moi
     @Composable
     fun AddUserDialog(onAddUser: (User) -> Unit) {
+//        Khai bao va khoi tao cac bien trang thai
         var name by remember { mutableStateOf("") }
         var age by remember { mutableStateOf("") }
         var gender by remember { mutableStateOf("") }
@@ -83,10 +88,10 @@ class ListUserActivity : ComponentActivity() {
 
         if (showDialog) {
             Dialog(
-                onDismissRequest = { showDialog = false },
+                onDismissRequest = { showDialog = false }, //lambda Function duoc dung de dong hop thoai
                 properties = DialogProperties(
-                    dismissOnClickOutside = false,
-                    dismissOnBackPress = false
+                    dismissOnClickOutside = false, //Hop thoai se duoc dong khi nguoi dung nhap ra ben ngoai hop thoai
+                    dismissOnBackPress = false //hop thoai se khong bi dong khi nguoi dung nhan Back tren thiet bi
                 )
             ) {
                 Card(
@@ -150,29 +155,33 @@ class ListUserActivity : ComponentActivity() {
         }
     }
 
+//    Nhan ds cac doi tuong User hien thi duoi dang LazyColumn
     @Composable
     fun UserList(users: List<User>) {
         LazyColumn {
+//            items hien thi tung phan tu trong ds users
             items(users) { user ->
+//                Hien thi thong tin chi tiet cua tung User
                 UserItem(user = user)
             }
         }
     }
 
+//    Item chi tiet thong tin User
     @Composable
     fun UserItem(user: User) {
         Card(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 8.dp, horizontal = 16.dp)
-                .clickable { /* Handle click if needed */ },
-            elevation = 4.dp
+                .padding(vertical = 8.dp, horizontal = 16.dp),
+            elevation = 4.dp //Do bong
         ) {
             Row (
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
+//                Hien thi thong tin ten, tuoi, gioi tinh cuar User
                 Column(
                     modifier = Modifier.fillMaxHeight().padding(10.dp)
                 ) {
@@ -181,6 +190,7 @@ class ListUserActivity : ComponentActivity() {
                     Text(text = "Gender: ${user.gender}")
                 }
 
+//                Hien thi Icon Delete and Edit
                 Column (
                     modifier = Modifier.fillMaxHeight(),
                     verticalArrangement = Arrangement.SpaceEvenly

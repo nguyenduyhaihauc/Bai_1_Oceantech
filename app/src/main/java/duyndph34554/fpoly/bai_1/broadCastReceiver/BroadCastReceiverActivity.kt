@@ -17,6 +17,7 @@ import duyndph34554.fpoly.bai_1.ui.theme.MyApplicationTheme
 class BroadCastReceiverActivity : ComponentActivity() {
     private val networkChangeReceiver = NetworkChangeReceiver()
 
+//    onCreate khoi tao trang thai hoat dong
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -26,14 +27,18 @@ class BroadCastReceiverActivity : ComponentActivity() {
         }
     }
 
+//    onStart duoc goi khi nguoi dung nhin thay giao dien
     override fun onStart() {
         super.onStart()
+//    Tao ra bo loc filter de lang nghe hanh dong cua ket noi mang
         val filter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
+//    Dang ky de lang nghe cac thay doi ket noi mang voi bo loc filter
         registerReceiver(networkChangeReceiver, filter)
     }
 
     override fun onStop() {
         super.onStop()
+//        Huy dang ky de ngung lang nghe su thay doi ket noi mang
         unregisterReceiver(networkChangeReceiver)
     }
 }

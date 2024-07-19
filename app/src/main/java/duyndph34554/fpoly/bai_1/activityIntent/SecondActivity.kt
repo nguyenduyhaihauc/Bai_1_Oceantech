@@ -19,6 +19,7 @@ import duyndph34554.fpoly.bai_1.ui.theme.MyApplicationTheme
 class SecondActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        Hien thi thong bao tai logcat
         Log.d("SecondActivity", "onCreate called")
 
 //        Nhan du lieu duoc truyen tu man Main
@@ -36,26 +37,31 @@ class SecondActivity : ComponentActivity() {
         }
     }
 
+//    Activity duoc nhin thay
     override fun onStart() {
         super.onStart()
         Log.d("SecondActivity", "onStart called")
     }
 
+//    Activity nhan duoc tuong tac tu nguoi dung va tro thanh hanh dong chinh
     override fun onResume() {
         super.onResume()
         Log.d("SecondActivity", "onResume called")
     }
 
+//    Activity khong la hd chinh, luu trang thai
     override fun onPause() {
         super.onPause()
         Log.d("SecondActivity", "onPause called")
     }
 
+//    Activity khong con nhin thay
     override fun onStop() {
         super.onStop()
         Log.d("SecondActivity", "onStop called")
     }
 
+//    Activity sap bi huy bo
     override fun onDestroy() {
         super.onDestroy()
         Log.d("SecondActivity", "onDestroy called")

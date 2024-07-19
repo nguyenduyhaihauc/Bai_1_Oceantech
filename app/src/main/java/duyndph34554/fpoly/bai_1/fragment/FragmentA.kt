@@ -19,6 +19,7 @@ import duyndph34554.fpoly.bai_1.R
 
 
 class FragmentA : Fragment() {
+//    onCreateView duoc goi de tao va tra ve giao dien nguoi dung lien ket voi Fragment
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,6 +35,7 @@ class FragmentA : Fragment() {
     fun FragmentAContent() {
         Button(onClick = {
             // Replace FragmentA with FragmentB
+//            Bat dau 1 giao dich Fragment
             parentFragmentManager.commit {
                 setReorderingAllowed(true)
                 replace<FragmentB>(R.id.fragment_container_view)
